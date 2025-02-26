@@ -1,6 +1,5 @@
 <p>
-  <img src="image/image001.png" alt="I was born, studied, worked and founded my business in Hsinchu and have established companies 
-  in Hsinchu, " style="float:left; margin-right:10px;">
+  <img src="image/image001.png" alt="Ares Jiang" style="float:left; margin-right:10px;">
   I was born, studied, worked and founded my business in Hsinchu and have established companies 
   in Hsinchu, Shanghai, and Suzhou. Our company specializes in the semiconductor industry. After 
   having complete experience in the semiconductor industry with 6/8/12 inches (micrometer/sub-
