@@ -17,7 +17,7 @@
 <p>
   <!-- 調整下列 src 與 alt 為你的圖片連結與說明 -->
   <img src="image/image001.png" alt="My Photo" 
-       style="float: left; margin-right: 10px; width: 200px;">
+       style="float: left; margin-right: 10px; width: 100px;">
   
   I was born, studied, worked and founded my business in Hsinchu and have established companies 
   in Hsinchu, Shanghai, and Suzhou. Our company specializes in the semiconductor industry. After 
