@@ -1,5 +1,5 @@
 <p>
-  <img src="[你的圖片連結](https://github.com/user-attachments/assets/bc4edd92-ef00-4728-8c39-471144d7a290)" alt="圖片描述" style="float:left; margin-right:10px;">
+  <img src="image/image001.png" alt="圖片描述" style="float:left; margin-right:10px;">
   I was born, studied, worked and founded my business in Hsinchu and have established companies 
   in Hsinchu, Shanghai, and Suzhou. Our company specializes in the semiconductor industry. After 
   having complete experience in the semiconductor industry with 6/8/12 inches (micrometer/sub-
