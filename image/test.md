@@ -7,6 +7,7 @@
 ### Attentive – Pays close attention to details and people
 ### Optimistic – Looks at challenges with a can-do mindset
 
+#
 
 ### 個人特質
 ---
