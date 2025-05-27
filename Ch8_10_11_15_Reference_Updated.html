@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 8/10/11/15 Reference Table</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chapter 8/10/11/15 Reference Table</h1>
+    <div class="table-container">
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>章節</th>
+      <th>主題</th>
+      <th>模型 / 定理</th>
+      <th>內容說明</th>
+      <th>估計式 / 檢定式</th>
+      <th>虛無假設 H₀</th>
+      <th>要點 / 備註</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8</td>
+      <td>異質變異回歸模型</td>
+      <td>$y_i=\beta_1+\beta_2x_i+e_i,\;\; \operatorname{Var}(e_i\mid x_i)=\sigma_i^{2}=\sigma^{2}h(x_i)$</td>
+      <td>允許誤差變異隨解釋變數系統性改變</td>
+      <td>—</td>
+      <td>—</td>
+      <td>後續 GLS、檢定基礎</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>White (HC0–HC3) 穩健變異數</td>
+      <td>$\widehat{\operatorname{Var}}(\hat{\beta})_{\text{HC0}}=(X'X)^{-1}\!\Bigl(\sum_{i=1}^{n}\hat{e}_i^{2}x_ix_i'\Bigr)(X'X)^{-1}$</td>
+      <td>不需事先知道 $h(x)$；大樣本一致</td>
+      <td>HC1、HC2、HC3 只對 HC0 再加權</td>
+      <td>—</td>
+      <td>t/F/信賴區間在有無異質變異時皆有效</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>GLS（已知變異）</td>
+      <td>$\sigma_i^{2}=\sigma^{2}x_i \;\Rightarrow\; y_i^{*}=\dfrac{y_i}{\sqrt{x_i}},\; x_i^{*}=1,\sqrt{x_i}$</td>
+      <td>加權最小平方法 (WLS) 與 GLS 等價</td>
+      <td>$\hat{\beta}_{\text{GLS}}=(X^{*'}X^{*})^{-1}X^{*'}y^{*}$</td>
+      <td>—</td>
+      <td>假設正確時為 BLUE</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>FGLS（未知變異）</td>
+      <td>$\ln\hat{\sigma}_i^{2}=\alpha_1+\alpha_2z_{i2}+…+\alpha_S z_{iS}$</td>
+      <td>OLS→估 $\alpha$→得 $\hat{h}(z_i)$→WLS</td>
+      <td>同左</td>
+      <td>—</td>
+      <td>一致且通常效率高於 OLS</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Goldfeld–Quandt</td>
+      <td>$GQ=\dfrac{\text{RSS}_{1}/df_1}{\text{RSS}_{2}/df_2}\sim F(df_1,df_2)$</td>
+      <td>分組比較誤差變異</td>
+      <td>同左</td>
+      <td>$H_0:\sigma_1^{2}=\sigma_2^{2}$</td>
+      <td>樣本可自然排序或分割</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Breusch–Pagan / LM</td>
+      <td>$\hat{e}_i^{2}=\alpha_1+\sum_{s=2}^{S}\alpha_s z_{is}+v_i$</td>
+      <td>$LM=nR^{2}\xrightarrow{d}\chi^{2}_{S-1}$</td>
+      <td>同左</td>
+      <td>$H_0:\alpha_2=\dots=\alpha_S=0$</td>
+      <td>檢測誤差變異是否隨 $z$ 改變</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>White 全域檢定</td>
+      <td>以 $x, x^{2}$ 與交乘項做 $z$</td>
+      <td>同 BP，但對任意異質變異具一致性</td>
+      <td>同 BP</td>
+      <td>同 BP</td>
+      <td>亦可偵測模型型態錯誤</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>內生性問題</td>
+      <td>$y_i=\beta_1+\beta_2x_i+e_i,\;\; \operatorname{cov}(x_i,e_i)\neq0$</td>
+      <td>解釋變數相關 → OLS 偏誤、不一致</td>
+      <td>—</td>
+      <td>—</td>
+      <td>需 IV/2SLS</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>工具變數 (IV)</td>
+      <td>$\hat{\beta}_{\text{IV}}=\dfrac{\operatorname{cov}(z,y)}{\operatorname{cov}(z,x)}$</td>
+      <td>工具需同時滿足關聯性與外生性</td>
+      <td>同左</td>
+      <td>—</td>
+      <td>單工具 just‑ID, 多工具 over‑ID</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>二階段最小平方 (2SLS)</td>
+      <td>Step 1: $\hat{x}=P_Zx,\; P_Z=Z(Z'Z)^{-1}Z'$\nStep 2: $\hat{\beta}_{2SLS}=(X'\!P_ZX)^{-1}X'\!P_Zy$</td>
+      <td>實務計算 IV 的標準流程</td>
+      <td>同左</td>
+      <td>—</td>
+      <td>軟體自動產出 SE</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>弱工具檢驗</td>
+      <td>$F_{\text{1st stage}}>10$ (單內生)</td>
+      <td>F 小 ⇒ weak IV</td>
+      <td>$F$ 統計量</td>
+      <td>$H_0:$ 工具弱</td>
+      <td>多內生⇒Cragg–Donald $F$</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Hausman 檢定</td>
+      <td>$H=(b_{OLS}-\hat{\beta}_{IV})^{\!\prime}\!\bigl[\widehat{\operatorname{Var}}(b_{OLS})-\widehat{\operatorname{Var}}(\hat{\beta}_{IV})\bigr]^{-1}(b_{OLS}-\hat{\beta}_{IV})$</td>
+      <td>$H\sim\chi^{2}_{K_{endog}}$</td>
+      <td>同左</td>
+      <td>$H_0:\operatorname{cov}(x,e)=0$</td>
+      <td>拒絕 ⇒ 採用 IV</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Sargan/Hansen 過度識別</td>
+      <td>$J=\hat{e}_{IV}'Z(Z'Z)^{-1}Z'\hat{e}_{IV}\xrightarrow{d}\chi^{2}_{L-B}$</td>
+      <td>檢定多餘工具是否外生</td>
+      <td>同左</td>
+      <td>$H_0:$ 所有工具外生</td>
+      <td>拒絕 ⇒ 至少一工具無效</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>需求-供給模型</td>
+      <td>Demand: $Q_i=\alpha_1P_i+\alpha_2X_i+e_{di}$\nSupply: $Q_i=\beta_1P_i+e_{si}$</td>
+      <td>P, Q 內生 → 同時方程式</td>
+      <td>—</td>
+      <td>—</td>
+      <td>須系統估計</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>縮減式</td>
+      <td>$P_i=\pi_1X_i+v_{1i},\;\; Q_i=\pi_2X_i+v_{2i}$</td>
+      <td>解內生變數為外生函數</td>
+      <td>式 (11.4)(11.5)</td>
+      <td>—</td>
+      <td>π 可 OLS 估後生成工具</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>識別條件</td>
+      <td>階層條件: $K^{*}\ge M_1$\n秩條件: rank$(Z)$足夠</td>
+      <td>確保結構參數可唯一識別</td>
+      <td>—</td>
+      <td>—</td>
+      <td>$K^{*}$: 外生排除數</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2SLS (系統)</td>
+      <td>$\hat{\beta}_{2SLS}=(X'\!P_ZX)^{-1}X'\!P_Zy$</td>
+      <td>Stage‑1 以外生變數產出 $\hat{X}$</td>
+      <td>同左</td>
+      <td>—</td>
+      <td>多方程皆適用</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>LIML (k‑class)</td>
+      <td>$\hat{\beta}_{k}=\bigl(X'(I-kM)X\bigr)^{-1}X'(I-kM)y$</td>
+      <td>k=λ̂ (最小特徵根) ⇒ LIML</td>
+      <td>—</td>
+      <td>—</td>
+      <td>小樣本偏誤較小</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>固定效果 (Within)</td>
+      <td>$y_{it}-\bar{y}_i=\beta\bigl(x_{it}-\bar{x}_i\bigr)+\bigl(e_{it}-\bar{e}_i\bigr)$</td>
+      <td>消除個體不變異質 $u_i$</td>
+      <td>OLS + cluster‑robust SE</td>
+      <td>—</td>
+      <td>無法估時間不變變數</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>隨機效果 (RE)</td>
+      <td>$y_{it}=\beta x_{it}+u_i+e_{it},\;\; \operatorname{cov}(u_i,x_{it})=0$</td>
+      <td>u_i 視為隨機，FGLS 最有效</td>
+      <td>$\theta=1-\sqrt{\dfrac{\sigma_e^{2}}{\sigma_e^{2}+T\sigma_u^{2}}}$\n$y^*=y_{it}-\theta\bar{y}_i$</td>
+      <td>—</td>
+      <td>θ=1 ⇒ FE, θ=0 ⇒ OLS</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>LM 檢定 (RE)</td>
+      <td>$LM=\dfrac{N(T-1)}{2(T-2)}\Bigl[\dfrac{\sum_{i}\bigl(\sum_{t}e_{it}\bigr)^{2}}{\sum_{it}e_{it}^{2}}-1\Bigr]\xrightarrow{d}\chi^{2}_{1}$</td>
+      <td>檢測 $σ_u^{2}=0$</td>
+      <td>同左</td>
+      <td>$H_0:σ_u^{2}=0$</td>
+      <td>LM>臨界 ⇒ 用 RE</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Hausman (FE vs RE)</td>
+      <td>$H=(b_{FE}-b_{RE})' \bigl[\widehat{\operatorname{Var}}(b_{FE})-\widehat{\operatorname{Var}}(b_{RE})\bigr]^{-1}(b_{FE}-b_{RE})\sim\chi^{2}_{K}$</td>
+      <td>檢驗 cov(u,x)=0</td>
+      <td>同左</td>
+      <td>$H_0:$ RE 一致 (外生)</td>
+      <td>拒絕 ⇒ FE 合適</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</body>
+</html>
